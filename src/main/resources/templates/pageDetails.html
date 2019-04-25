@@ -1,0 +1,45 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<div class="row" >
+	<div class="col-md-12 mg-top-20">
+		<h5 class="text-left">
+			<b class="green">HTML version : </b>
+			<span th:text="${documentDetails.htmlVersion}"></span> 
+		</h5>
+		<h5 class="text-left">
+			<b class="green">Page Title : </b>
+			<span  th:text="''+${documentDetails.pageTitle}"></span> 
+		</h5>
+		<h5 class="text-left">
+			<b class="green">Has Login Form:</b>
+			<span th:text="${documentDetails.hasLoginForm}? Yes : No"> </span>
+		</h5>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 mg-top-30">
+		<h4 class="text-left green">Heading Levels</h4>
+		<table class="table mg-top-10">
+			<thead>
+				<tr>
+					<th>h1</th>
+					<th>h2</th>
+					<th>h3</th>
+					<th>h4</th>
+					<th>h5</th>
+					<th>h6</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${documentDetails.h1}" ></td>
+					<td th:text="${documentDetails.h2}" ></td>
+					<td th:text="${documentDetails.h3}" ></td>
+					<td th:text="${documentDetails.h4}" ></td>
+					<td th:text="${documentDetails.h5}" ></td>
+					<td th:text="${documentDetails.h6}" ></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>

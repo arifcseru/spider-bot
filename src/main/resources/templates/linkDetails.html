@@ -1,0 +1,42 @@
+<style>
+	.message-wrapper{
+		word-break: break-word;
+	}
+</style>
+
+<div xmlns:th="http://www.thymeleaf.org">
+
+		<table  th:if="${hyperMediaLinks!=null && hyperMediaLinks.size()>0}" class="table  table-sm table-striped" id="linkTable" style="max-height: 500px; overflow-y: sc">
+			<thead>
+				<tr>
+					<th>S.no</th>
+					<th>Link Address</th>
+					<th>Link Type</th>
+					<th>Status</th>
+					<th>Message</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr th:each="linkDetails,cntr : ${hyperMediaLinks}" >
+						<td th:text="${cntr.index+1}"></td>
+						<td class="col-md-7 text-left message-wrapper" th:text="${linkDetails.linkAddress}"></td>
+						<td class="col-md-1" th:text="${linkDetails.linkType}"></td>
+						<td class="col-md-1" th:if="${linkDetails.status==-1}"><img class="info" th:src="@{/img/Spinner.gif}" /></td>
+						<td class="col-md-2"  th:if="${linkDetails.status==-1}"><img class="info" th:src="@{/img/Spinner.gif}" /></td>
+							
+						<td th:if="${linkDetails.status==200}" class="col-md-1 text-success" th:text="${linkDetails.status}"></td>
+						<td th:if="${linkDetails.status==200}" class="col-md-2 text-success" th:text="${linkDetails.errorMessage}"></td>
+					
+						<td th:if="${linkDetails.status!=200 && linkDetails.status >0}" class="col-md-1 text-danger" th:text="${linkDetails.status}"></td>
+						<td th:if="${linkDetails.status!=200 && linkDetails.status >0}" class="col-md-2 text-danger" th:text="${linkDetails.errorMessage}"></td>
+					 	
+					</tr>
+
+			</tbody>
+		</table>
+	
+		<div th:unless="${hyperMediaLinks!=null && hyperMediaLinks.size()>0}" class="alert alert-primary" role="alert">
+		  No link found in this resource link!
+		</div>
+
+</div>
