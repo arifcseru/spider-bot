@@ -46,18 +46,25 @@ public class CrawlerController {
         return "result";
     }
 
-    @RequestMapping(value = "/ddosAttack", params = {"url", "times"}, method = RequestMethod.GET)
-    public String findPaginated(Model model,@RequestParam("url") String url,@RequestParam("times") int times) {
+    @RequestMapping(value = "/ddosAttack", method = RequestMethod.GET)
+    public String ddosAttack(Model model) {
+        
+        model.addAttribute("finalString", "Welcome to DDOS Attack.");
+        return "ddosAttack";
+    }
+    
+    @PostMapping("/ddosAttackAction")
+    public String ddosAttackAction(Model model, @RequestParam("url") String url, @RequestParam("thread") int thread) throws IOException {
         System.out.println(" url = " + url);
         model.addAttribute("finalString", "");
         DdosAttacker.totalVisited = 0;
-        for (int i = 0; i < times; i++) {
+        for (int i = 0; i < thread; i++) {
             DdosAttacker.url= url;//"http://www.w3schools.com";
             DdosAttacker.singleUserVisitingTime = 10;
             DdosAttacker object = new DdosAttacker();
             object.start();
         }
-        model.addAttribute("finalString", "Attacked URL is "+url+" Visited: "+times*10+" Times.");
+        model.addAttribute("finalString", "Attacked URL is "+url+" Visiting: "+thread*DdosAttacker.singleUserVisitingTime+" Times.");
         return "ddosResult";
     }
 
