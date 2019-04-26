@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Spider BOT</title>
+	<title>Welcome Home</title>
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css"  th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
@@ -22,7 +22,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light static-top">
       <div class="container">
-        <a class="navbar-brand" th:href="@{/}">SPIDER</a>
+        <a class="navbar-brand" th:href="@{/}">SPIDER BOT</a>
       </div>
     </nav>
 
@@ -36,10 +36,11 @@
            
            
            
-            <form th:action="@{/search}" method="post" id="searchForm">
+            <form th:action="@{/ddosAttack}" method="get" id="searchForm">
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" id="linkAddress"  name="pageURI" class="form-control form-control-lg" placeholder="Enter URL to fetch page details.">
+                  <input type="text" id="linkAddress"  name="url" class="form-control form-control-lg" placeholder="Enter URL to fetch page details.">
+                  <input type="hidden" value="100" id="times"  name="times" class="form-control form-control-lg"/>
                 </div>
                 <div class="col-12 col-md-3">
                   <button type="button" class="btn btn-block btn-lg btn-success" id="btnSearch">Search</button>
@@ -51,7 +52,15 @@
       </div>
     </header>
 
-
+<div class="row" >
+	<div class="col-md-12 mg-top-20">
+		<h5 class="text-left">
+			<b class="green">Output : </b>
+			<span th:text="${finalString}"></span> 
+		</h5>
+		
+	</div>
+</div>
  
 
     <!-- Footer -->

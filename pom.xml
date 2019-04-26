@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.scout24</groupId>
-	<artifactId>sout24-spider</artifactId>
+	<artifactId>spider-bot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>sout24-spider</name>
+	<name>spider-bot</name>
 	<description>spider is application to analyze html dom elements and links</description>
 
 	<parent>
@@ -87,7 +87,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+	 <dependency>
+	  <groupId>org.apache.httpcomponents</groupId>
+	  <artifactId>httpcore</artifactId>
+	  <version>4.4.10</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.apache.httpcomponents</groupId>
+	  <artifactId>httpclient</artifactId>
+	  <version>4.5.6</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
